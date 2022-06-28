@@ -1,0 +1,28 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+
+<div class='tpc'>
+  <p style="font-size: 22px; color: green">Topics:</p>
+</div>
+<div class='tpc-list'>
+  <ul>
+    {% for topic in topics %}
+	  <div class='tpc-name'>
+	    <li>
+		  <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
+		</li>
+	  </div>
+	{% empty %}
+	  <div class='tpc-name'>
+	    <li>No topics have been added yet.</li>
+      </div>
+	{% endfor %}
+  </ul>
+</div>
+<div class='url'>
+  <a href="{% url 'learning_logs:new_topic' %}">Add a new topic</a>
+</div>
+
+{% endblock %}
+        
